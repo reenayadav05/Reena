@@ -1,0 +1,90 @@
+Prachi Tardekar, 3 min
+
+package Alltalentproject;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+
+public class Loginpage1 {
+    public static void main(String[] args) throws InterruptedException {
+        // Set EdgeOptions to open in private mode
+        EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.addArguments("--inprivate"); // Use this option to enable private mode
+
+        // Specify the path to the Edge WebDriver executable
+        System.setProperty("webdriver.edge.driver", "C:\\Users\\www.abcom.in\\Downloads\\edgedriver_win64\\msedgedriver.exe");
+
+        // Initialize EdgeDriver with EdgeOptions
+        WebDriver driver = new EdgeDriver(edgeOptions);
+
+        driver.manage().window().maximize();
+        driver.get("https://www.alltalent.com/");
+        driver.findElement(By.id("showmenu2")).click();
+        driver.findElement(By.className("login_with_pass")).click();
+        driver.findElement(By.id("loginmobilenum")).sendKeys("8291165891");
+
+        
+        driver.findElement(By.id("login_password")).sendKeys("abcd@1234");
+        driver.findElement(By.className("proced_btns_sec")).click();
+
+        //Close the Edge WebDriver session
+        //driver.quit();
+    }
+}
+_____________________________________________
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class Login {
+
+    public static void main(String[] args) throws InterruptedException {
+        // Set EdgeOptions to open in private mode
+        EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.addArguments("--inprivate"); // Use this option to enable private mode
+
+        // Specify the path to the Edge WebDriver executable
+        System.setProperty("webdriver.edge.driver","D:\\edgedriver_win64 (1)\\msedgedriver.exe");
+        
+        WebDriver driver = new EdgeDriver(edgeOptions);
+        driver.manage().window().maximize();
+        
+        driver.get("https://srds.ai/");
+        driver.findElement(By.className("login_btn")).click();
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div/form/div/div[1]/div/div/button[2]")).click();
+        driver.findElement(By.name("email")).sendKeys("prachi+1@webarcitech.com");
+        driver.findElement(By.name("password")).sendKeys("Abcd@1234");
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div/form/div/div[4]/button")).click();
+        Thread.sleep(7000);
+        
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div/div/div[2]/div/div[2]/button")).click();
+        driver.findElement(By.xpath("//*[@id=\":r2:\"]")).sendKeys("Math");
+        
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div/div/div[2]/div/form/div/div[1]/div[2]/div/div/div")).click();
+        
+        
+        WebElement items= driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div/div/div/div[2]/div/form/div/div[1]/div[2]/div/div/div"));
+        
+        
+        Select select = new Select(items);
+        select.deselectByVisibleText("30");
+        
+        Thread.sleep(7000);
+        
+
+        
+        
+    }
+
+}
